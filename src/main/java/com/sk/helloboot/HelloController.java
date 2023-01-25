@@ -1,9 +1,16 @@
 package com.sk.helloboot;
 
-public class HelloController {
+import java.util.Objects;
 
-	public String hello(String name) {
-		return "Hello " + name;
+public class HelloController {
+	
+	private final HelloService helloService;
+	
+	public HelloController(HelloService helloService) {
+		this.helloService = helloService;
 	}
 
+	public String hello(String name) {
+		return helloService.sayHello(Objects.requireNonNull(name));
+	}
 }
