@@ -3,25 +3,16 @@ package com.sk.helloboot;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
 @Configuration
-public class App 
-{
-	@Bean
-	public HelloController helloController(HelloService helloService) {
-		return new HelloController(helloService);
-	}
-	
-	@Bean
-	public HelloService helloService() {
-		return new SimpleHelloService();
-	}
+@ComponentScan
+public class App {
 
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ){
     	//스프링 컨테이너 초기화 메서드 내에 서블릿컨테이너 생성 삽입
     	AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext() {
 			@Override
@@ -29,7 +20,6 @@ public class App
 				super.onRefresh();
 				TomcatServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
 		    	WebServer webServer = serverFactory.getWebServer(servletContext ->{
-		    		
 		    		//DispatcherServlet으로 변경
 		    		servletContext.addServlet("hello", new DispatcherServlet(this)).addMapping("/*");
 				});
