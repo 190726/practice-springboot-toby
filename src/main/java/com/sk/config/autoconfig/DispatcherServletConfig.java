@@ -1,8 +1,7 @@
 package com.sk.config.autoconfig;
 
-import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
-import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import com.sk.config.MyAutoConfiguration;
 
@@ -10,7 +9,8 @@ import com.sk.config.MyAutoConfiguration;
 public class DispatcherServletConfig {
 	
 	@Bean
-	public ServletWebServerFactory servletWebServerFactory() {
-		return new TomcatServletWebServerFactory();
+	public DispatcherServlet dispatcherServlet() {
+		
+		return new DispatcherServlet();
 	}
 }

@@ -1,2 +1,3 @@
 com.sk.config.autoconfig.TomcatWebServerConfig
+com.sk.config.autoconfig.JettyWebServerConfig
 com.sk.config.autoconfig.DispatcherServletConfig
