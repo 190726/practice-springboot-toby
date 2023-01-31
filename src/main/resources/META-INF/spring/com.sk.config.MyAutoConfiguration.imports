@@ -1,4 +1,4 @@
-com.sk.config.autoconfig.ServerPropertyConfig
+com.sk.config.autoconfig.PropertyPostProcessingConfig
 com.sk.config.autoconfig.PropertyPlaceholderConfig
 com.sk.config.autoconfig.TomcatWebServerConfig
 com.sk.config.autoconfig.JettyWebServerConfig
